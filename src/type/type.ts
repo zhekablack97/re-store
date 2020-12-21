@@ -1,0 +1,1 @@
+export type booksLoaderType = 'BOOKS_LOADER' | '';
