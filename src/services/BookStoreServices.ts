@@ -1,5 +1,5 @@
-export class bookStoeService {
+export class bookStoeService{
     getBooks(){
-        return [];
+        return ['sdsdsd','dfsdfsdf','sdfsdssssssssssssss'];
     }
 }
