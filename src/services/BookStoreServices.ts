@@ -1,4 +1,4 @@
-export class BookStoeService {
+export class bookStoeService {
     getBooks(){
         return [];
     }
