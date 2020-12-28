@@ -1,4 +1,4 @@
-export class bookStoeService{
+export class BookStoreService{
     getBooks(){
         return ['sdsdsd','dfsdfsdf','sdfsdssssssssssssss'];
     }

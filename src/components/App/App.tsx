@@ -1,20 +1,21 @@
 import React from 'react';
 import Spinner from '../Spinner';
 import WithBookStoreService from '../hoc/withBookStoreService'
+import { BookStoreService } from '../../services/bookStoreServices';
 
 interface IApp {
-  bookStoreService: any
+  bookStoreService: BookStoreService
 }
 
 const App: React.FC<IApp> = ({bookStoreService}) => {
 
-  const a = new bookStoreService()
+  
 
+  console.log(bookStoreService.getBooks())
 
-  console.log(a.getBooks())
   return (
     <div>
-      {bookStoreService}
+      {/* {bookStoreService} */}
       <Spinner />
     </div>
     
