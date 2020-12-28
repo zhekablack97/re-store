@@ -1,25 +1,15 @@
 import React from 'react';
-import Spinner from '../Spinner';
-import WithBookStoreService from '../hoc/withBookStoreService'
-import { BookStoreService } from '../../services/bookStoreServices';
+import {Switch, Route} from 'react-router-dom'
+import { CardPage, HomePage } from '../pages';
 
-interface IApp {
-  bookStoreService: BookStoreService
-}
 
-const App: React.FC<IApp> = ({bookStoreService}) => {
-
-  
-
-  console.log(bookStoreService.getBooks())
-
+const App: React.FC = () => {
   return (
-    <div>
-      {/* {bookStoreService} */}
-      <Spinner />
-    </div>
-    
+    <Switch>
+      <Route path="/" component={HomePage} exact/>
+      <Route path="/card" component={CardPage} exact />
+    </Switch>
   );
 }
 
-export default WithBookStoreService()(App);
+export default App;
