@@ -1,7 +1,4 @@
-import CardPage from "./card"
-import HomePage from "./home"
+import CardPage from "./card";
+import HomePage from "./home";
 
-export {
-    HomePage,
-    CardPage
-}
+export { HomePage, CardPage };

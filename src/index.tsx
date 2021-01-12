@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
-import App from './components/App';
-import { BookStoreServiceProvider } from './components/BookStoreServiceContext';
-import ErrorBoundry from './components/ErrorBoundry';
-import './index.scss';
-import reportWebVitals from './reportWebVitals';
-import { BookStoreService } from './services/BookStoreServices';
-import store from './store';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./components/App";
+import { BookStoreServiceProvider } from "./components/BookStoreServiceContext";
+import ErrorBoundry from "./components/ErrorBoundry";
+import "./index.scss";
+import reportWebVitals from "./reportWebVitals";
+import { BookStoreService } from "./services/BookStoreServices";
+import store from "./store";
 
 const bookStoreService = new BookStoreService();
 
@@ -21,10 +21,10 @@ ReactDOM.render(
             <App />
           </Router>
         </BookStoreServiceProvider>
-        </ErrorBoundry>
-      </Provider>
+      </ErrorBoundry>
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

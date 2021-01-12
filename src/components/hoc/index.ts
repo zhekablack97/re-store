@@ -1,2 +1,2 @@
-import WithBookStoreService from './withBookStoreService'
+import WithBookStoreService from "./withBookStoreService";
 export default WithBookStoreService;
