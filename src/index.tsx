@@ -7,7 +7,7 @@ import { BookStoreServiceProvider } from './components/BookStoreServiceContext';
 import ErrorBoundry from './components/ErrorBoundry';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { BookStoreService } from './services/bookStoreServices';
+import { BookStoreService } from './services/BookStoreServices';
 import store from './store';
 
 const bookStoreService = new BookStoreService();
@@ -19,7 +19,7 @@ ReactDOM.render(
         <BookStoreServiceProvider value={bookStoreService as any}>
           <Router>
             <App />
-            </Router>
+          </Router>
         </BookStoreServiceProvider>
         </ErrorBoundry>
       </Provider>

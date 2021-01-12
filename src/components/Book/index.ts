@@ -1,2 +1,3 @@
-import BookListItem from './BookListItem/BookListItem'
-export default BookListItem;
+import BookListItem from './BookListItem/BookListItem';
+import BookList from './BookList/BookList';
+export { BookListItem, BookList };

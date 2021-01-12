@@ -1,5 +1,14 @@
 export class BookStoreService{
     getBooks(){
-        return ['sdsdsd','dfsdfsdf','sdfsdssssssssssssss'];
+        return [{
+            author: 'Синсеро Джен',
+            title: 'НИ СЫ. Будь уверен в своих силах и не позволяй сомнениям мешать тебе двигаться вперед',
+            id: 1
+        },
+        {
+            author: 'Мэнсон Марк',
+            title: 'Тонкое искусство пофигизма. Парадоксальный способ жить счастливо ',
+            id: 2
+        },];
     }
 }
