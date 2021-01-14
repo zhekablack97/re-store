@@ -1,8 +1,7 @@
-import { booksLoaderType } from "../type/type";
-
+import { book, booksLoaderType } from "../type/type";
 export interface IReducer {
   state: {
-    books: any;
+    books: book[];
   };
   action: {
     payload: any;
@@ -11,12 +10,26 @@ export interface IReducer {
 }
 
 export const initialState = {
-  books: [],
+  books: [
+    {
+      author: "Синсеро Джен",
+      title:
+        "НИ СЫ. Будь уверен в своих силах и не позволяй сомнениям мешать тебе двигаться вперед",
+      id: 1,
+    },
+    {
+      author: "Мэнсон Марк",
+      title:
+        "Тонкое искусство пофигизма. Парадоксальный способ жить счастливо ",
+      id: 2,
+    },
+  ],
 };
 
-const reducer = (props: IReducer) => {
-  const { action, state } = props;
+const reducer = (state = initialState, action: any) => {
 
+  console.log("редусер стайт ", state)
+  
   switch (action.type) {
     case "BOOKS_LOADER":
       return {
