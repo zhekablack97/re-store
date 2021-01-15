@@ -27,9 +27,6 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action: any) => {
-
-  console.log("редусер стайт ", state)
-  
   switch (action.type) {
     case "BOOKS_LOADER":
       return {

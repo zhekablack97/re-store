@@ -1,2 +1,6 @@
 export type booksLoaderType = "BOOKS_LOADER" | "";
-export type book = { title: string; author: string; id: number };
+export type book = {
+  author: string;
+  title: string;
+  id: number;
+};
