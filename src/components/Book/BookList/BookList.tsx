@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Component, useEffect } from "react";
 import { book } from "../../../type/type";
 import BookListItem from "../BookListItem/BookListItem";
 import { connect } from "react-redux";
@@ -7,25 +7,27 @@ import "./BookList.module.scss";
 import WithBookStoreService from "../../hoc";
 import { booksLoader } from "../../../actions";
 import { compose } from "../../../utils";
-import { List } from "@material-ui/core";
+import { Grid, List } from "@material-ui/core";
 
 interface IBookListWrapper {
   books?: book[];
   bookStoreService: BookStoreService;
+  booksLoader: any
 }
 
-const BookList: React.FC<IBookListWrapper> = ({ books, bookStoreService }) => {
+const BookList: React.FC<IBookListWrapper> = ({ books, bookStoreService, booksLoader }) => {
+  
   useEffect(() => {
     const data = bookStoreService.getBooks();
     booksLoader(data);
-  });
+  }, []);
 
   return (
-    <List>
-      {books?.map((book) => {
-        return <BookListItem key={book.id} book={book} />;
+    <>
+      {books?.map((books) => {
+        return <BookListItem key={books.id} book={books} />;
       })}
-    </List>
+    </>
   );
 };
 
