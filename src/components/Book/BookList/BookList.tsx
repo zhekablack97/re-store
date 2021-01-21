@@ -12,11 +12,14 @@ import { Grid, List } from "@material-ui/core";
 interface IBookListWrapper {
   books?: book[];
   bookStoreService: BookStoreService;
-  booksLoader: any
+  booksLoader: any;
 }
 
-const BookList: React.FC<IBookListWrapper> = ({ books, bookStoreService, booksLoader }) => {
-  
+const BookList: React.FC<IBookListWrapper> = ({
+  books,
+  bookStoreService,
+  booksLoader,
+}) => {
   useEffect(() => {
     const data = bookStoreService.getBooks();
     booksLoader(data);
