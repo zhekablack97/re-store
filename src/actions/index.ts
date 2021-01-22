@@ -19,7 +19,6 @@ const booksError = (error: any) => {
   };
 };
 
-
 const fetchBook = (bookStoreService: BookStoreService, dispatch: any) => () => {
   dispatch(booksRequested());
   bookStoreService
@@ -28,5 +27,5 @@ const fetchBook = (bookStoreService: BookStoreService, dispatch: any) => () => {
       dispatch(booksLoader(data));
     })
     .catch((error) => dispatch(booksError(error)));
-}
+};
 export { fetchBook };

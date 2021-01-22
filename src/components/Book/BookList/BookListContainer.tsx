@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { BookStoreService } from "../../../services/BookStoreServices";
 import "./BookList.module.scss";
 import WithBookStoreService from "../../hoc";
-import { fetchBook} from "../../../actions";
+import { fetchBook } from "../../../actions";
 import { compose } from "../../../utils";
 import { CircularProgress } from "@material-ui/core";
 import ErrorIndcator from "../../ErrorIndicator";
@@ -16,7 +16,7 @@ interface IBookListContainer {
   error: any;
   fetchBook: () => void;
 }
-interface IbookList{
+interface IbookList {
   books?: book[];
 }
 const BookListContainer: React.FC<IBookListContainer> = ({
@@ -35,10 +35,7 @@ const BookListContainer: React.FC<IBookListContainer> = ({
   if (error) {
     return <ErrorIndcator />;
   }
-  return (
-
-    <BookLIst books={books} />
-  );
+  return <BookLIst books={books} />;
 };
 
 const mapStateToProps = ({ books, loading, error }: any) => {
@@ -51,19 +48,19 @@ const mapDispatchToProps = (
 ) => {
   const { bookStoreService } = ownProps;
   return {
-    fetchBook: fetchBook(bookStoreService, dispatch)
+    fetchBook: fetchBook(bookStoreService, dispatch),
   };
 };
 
-const BookLIst:React.FC<IbookList> = ({ books }) => {
+const BookLIst: React.FC<IbookList> = ({ books }) => {
   return (
     <>
-    {books?.map((books) => {
-      return <BookListItem key={books.id} book={books} />;
-    })}
-  </>
-  )
-}
+      {books?.map((books) => {
+        return <BookListItem key={books.id} book={books} />;
+      })}
+    </>
+  );
+};
 
 export default compose(
   WithBookStoreService(),
