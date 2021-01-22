@@ -55,7 +55,7 @@ const BookList: React.FC<IBookListWrapper> = ({
     return <CircularProgress />;
   }
   if (error) {
-    return <ErrorIndcator />
+    return <ErrorIndcator />;
   }
   return (
     <>

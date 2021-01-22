@@ -22,12 +22,10 @@ export class BookStoreService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (Math.random() > 0.75) {
-          reject(new Error("Ошибочка"))
+          reject(new Error("Ошибочка"));
         } else {
           resolve(this.data);
         }
-        
-        
       }, 700);
     });
   }
