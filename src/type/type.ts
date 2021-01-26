@@ -7,10 +7,16 @@ export type actionType = {
   payload: any;
   type: booksLoaderType;
 };
-export type book = {
+export type bookType = {
   author: string;
   title: string;
   price: string;
   id: number;
   image: string;
+};
+export type cardItemsType = {
+  id: number;
+  name: string;
+  count: number;
+  total: number;
 };

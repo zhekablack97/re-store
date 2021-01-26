@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { book } from "../../../type/type";
+import { bookType } from "../../../type/type";
 import BookListItem from "../BookListItem/BookListItem";
 import { connect } from "react-redux";
 import { BookStoreService } from "../../../services/BookStoreServices";
@@ -11,13 +11,13 @@ import { CircularProgress } from "@material-ui/core";
 import ErrorIndcator from "../../ErrorIndicator";
 
 interface IBookListContainer {
-  books?: book[];
+  books?: bookType[];
   loading: boolean;
   error: any;
   fetchBook: () => void;
 }
 interface IbookList {
-  books?: book[];
+  books?: bookType[];
 }
 const BookListContainer: React.FC<IBookListContainer> = ({
   books,

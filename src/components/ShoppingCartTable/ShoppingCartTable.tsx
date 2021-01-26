@@ -9,10 +9,41 @@ import {
   Typography,
 } from "@material-ui/core";
 import styles from "./ShopppingCartTable.module.scss";
+import { cardItemsType } from "../../type/type";
+import { connect } from "react-redux";
 
-interface IShopppingCartTable {}
+interface IShopppingCartTable {
+  items?: cardItemsType[];
+  total?: number;
+  onIncrease?: any;
+  onDecrease?: any;
+  onDelite?: any;
+}
 
-const ShopppingCartTable: React.FC<IShopppingCartTable> = () => {
+const ShopppingCartTable: React.FC<IShopppingCartTable> = ({
+  items,
+  total,
+  onIncrease,
+  onDecrease,
+  onDelite,
+}) => {
+  const RenderRow = (item: cardItemsType, index: number) => {
+    const { name, count, total, id } = item;
+    return (
+      <TableRow key={id}>
+        <TableCell>{index + 1}</TableCell>
+        <TableCell>{name}</TableCell>
+        <TableCell>{count}</TableCell>
+        <TableCell>{total} руб.</TableCell>
+        <TableCell>
+          <button onClick={() => onIncrease(id)}>+</button>
+          <button onClick={() => onDecrease(id)}>-</button>
+          <button onClick={() => onDelite(id)}>DEL</button>
+        </TableCell>
+      </TableRow>
+    );
+  };
+
   return (
     <TableContainer>
       <Typography variant="h4" id="tableTitle" component="div">
@@ -28,23 +59,39 @@ const ShopppingCartTable: React.FC<IShopppingCartTable> = () => {
             <TableCell>Действий</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableCell>1</TableCell>
-            <TableCell>Книга</TableCell>
-            <TableCell>2</TableCell>
-            <TableCell>500 руб.</TableCell>
-            <TableCell>
-              <button>+</button>
-              <button>-</button>
-            </TableCell>
-          </TableRow>
-        </TableBody>
+        <TableBody>{items?.map(RenderRow)}</TableBody>
       </Table>
       <Typography variant="h4" id="tableTitle" align="right" component="div">
-        Итого - 500 руб.
+        Итого - {total} руб.
       </Typography>
     </TableContainer>
   );
 };
-export default ShopppingCartTable;
+
+type mapStateToPropsType = {
+  cardItems: cardItemsType[];
+  orderTotal: number;
+};
+
+const mapStateToProps = ({ cardItems, orderTotal }: mapStateToPropsType) => {
+  return {
+    items: cardItems,
+    total: orderTotal,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    onIncrease: (id: number) => {
+      console.log(`onIncrease ${id}`);
+    },
+    onDecrease: (id: number) => {
+      console.log(`onDecrease ${id}`);
+    },
+    onDelite: (id: number) => {
+      console.log(`onDelite ${id}`);
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopppingCartTable);

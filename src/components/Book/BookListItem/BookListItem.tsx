@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { book } from "../../../type/type";
+import { bookType } from "../../../type/type";
 import { Card, CardMedia, Grid, Typography } from "@material-ui/core";
 import styles from "./BookListItem.module.scss";
 
 interface IBookListItem {
-  book: book;
+  book: bookType;
 }
 
 const BookListItem: React.FC<IBookListItem> = ({ book }) => {
