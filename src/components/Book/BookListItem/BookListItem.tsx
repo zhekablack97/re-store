@@ -6,9 +6,10 @@ import styles from "./BookListItem.module.scss";
 
 interface IBookListItem {
   book: bookType;
+  onAddedToCart: any;
 }
 
-const BookListItem: React.FC<IBookListItem> = ({ book }) => {
+const BookListItem: React.FC<IBookListItem> = ({ book, onAddedToCart }) => {
   const { author, title, price, image } = book;
   return (
     <Grid item md={3}>
@@ -31,6 +32,7 @@ const BookListItem: React.FC<IBookListItem> = ({ book }) => {
         <Typography variant="body1" gutterBottom className={styles.title}>
           {author}
         </Typography>
+        <button onClick={onAddedToCart}>addCard</button>
       </Card>
     </Grid>
   );

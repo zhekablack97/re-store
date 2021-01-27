@@ -15,22 +15,23 @@ export const initialState = {
   error: null,
   cardItems: [
     {
-      id: 1,
+      id: 4,
       name: "Book-random",
       count: 3,
       total: 150,
     },
     {
-      id: 2,
+      id: 3,
       name: "Book-random2",
       count: 4,
       total: 550,
-    },
+    }
   ],
   orderTotal: 220,
 };
 
 const reducer = (state = initialState, action: actionType) => {
+
   switch (action.type) {
     case "FETCH_BOOKS_REQUESTED":
       return {
@@ -52,6 +53,24 @@ const reducer = (state = initialState, action: actionType) => {
         books: [],
         loading: false,
         error: action.payload,
+      };
+    
+    case "BOOK_ADDED_TO_CART":
+      const bookId = action.payload;
+      const book: any = state.books.find((book: bookType) => book.id === bookId);
+      const newItem = {
+        id: bookId,
+        name: book.title,
+        count: 1,
+        total: book.price,
+      }
+      console.log(newItem);
+      return {
+        ...state,
+        cardItems: [
+          ...state.cardItems,
+          newItem
+        ]
       };
     default:
       return state;

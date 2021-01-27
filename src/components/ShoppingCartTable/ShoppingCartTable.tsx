@@ -8,7 +8,7 @@ import {
   TableRow,
   Typography,
 } from "@material-ui/core";
-import styles from "./ShopppingCartTable.module.scss";
+// import styles from "./ShopppingCartTable.module.scss";
 import { cardItemsType } from "../../type/type";
 import { connect } from "react-redux";
 
@@ -69,8 +69,8 @@ const ShopppingCartTable: React.FC<IShopppingCartTable> = ({
 };
 
 type mapStateToPropsType = {
-  cardItems: cardItemsType[];
-  orderTotal: number;
+  cardItems?: cardItemsType[];
+  orderTotal?: number;
 };
 
 const mapStateToProps = ({ cardItems, orderTotal }: mapStateToPropsType) => {
