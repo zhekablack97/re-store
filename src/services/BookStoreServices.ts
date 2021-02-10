@@ -21,7 +21,7 @@ export class BookStoreService {
   getBooks() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (Math.random() > 0.75) {
+        if (Math.random() > 1) {
           reject(new Error("Ошибочка"));
         } else {
           resolve(this.data);

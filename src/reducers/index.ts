@@ -14,18 +14,7 @@ export const initialState = {
   loading: true,
   error: null,
   cardItems: [
-    {
-      id: 4,
-      name: "Book-random",
-      count: 3,
-      total: 150,
-    },
-    {
-      id: 3,
-      name: "Book-random2",
-      count: 4,
-      total: 550,
-    }
+    {}
   ],
   orderTotal: 220,
 };
@@ -60,7 +49,7 @@ const reducer = (state = initialState, action: actionType) => {
       const book: any = state.books.find((book: bookType) => book.id === bookId);
       const newItem = {
         id: bookId,
-        name: book.title,
+        title: book.title,
         count: 1,
         total: book.price,
       }

@@ -16,7 +16,7 @@ export type bookType = {
 };
 export type cardItemsType = {
   id: number;
-  name: string;
+  title: string;
   count: number;
   total: number;
 };
