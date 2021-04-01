@@ -2,7 +2,8 @@ export type booksLoaderType =
   | "FETCH_BOOKS_SUCCES"
   | "FETCH_BOOKS_REQUESTED"
   | "FETCH_BOOKS_FAILUERE"
-  | "BOOK_ADDED_TO_CART" | "";
+  | "BOOK_ADDED_TO_CART"
+  | "";
 export type actionType = {
   payload: any;
   type: booksLoaderType;

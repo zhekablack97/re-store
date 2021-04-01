@@ -26,7 +26,7 @@ const BookListContainer: React.FC<IBookListContainer> = ({
   error,
   loading,
   fetchBook,
-  onAddedToCart
+  onAddedToCart,
 }) => {
   useEffect(() => {
     fetchBook();
@@ -52,7 +52,7 @@ const mapDispatchToProps = (
   const { bookStoreService } = ownProps;
   return {
     fetchBook: fetchBook(bookStoreService, dispatch),
-    onAddedToCart: (id:number) => dispatch(onAddedToCart(id))
+    onAddedToCart: (id: number) => dispatch(onAddedToCart(id)),
   };
 };
 
@@ -60,7 +60,13 @@ const BookLIst: React.FC<IbookList> = ({ books, onAddedToCart }) => {
   return (
     <>
       {books?.map((books) => {
-        return <BookListItem key={books.id} onAddedToCart={() => onAddedToCart(books.id)} book={books} />;
+        return (
+          <BookListItem
+            key={books.id}
+            onAddedToCart={() => onAddedToCart(books.id)}
+            book={books}
+          />
+        );
       })}
     </>
   );

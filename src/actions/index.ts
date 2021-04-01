@@ -22,9 +22,9 @@ const booksError = (error: any) => {
 export const onAddedToCart = (bookId: number) => {
   return {
     type: "BOOK_ADDED_TO_CART",
-    payload: bookId
-  }
-}
+    payload: bookId,
+  };
+};
 
 const fetchBook = (bookStoreService: BookStoreService, dispatch: any) => () => {
   dispatch(booksRequested());

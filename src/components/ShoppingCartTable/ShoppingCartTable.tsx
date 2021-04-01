@@ -30,15 +30,15 @@ const ShopppingCartTable: React.FC<IShopppingCartTable> = ({
   const RenderRow = (item: cardItemsType, index: number) => {
     const { title, count, total, id } = item;
 
-    console.log(item)
+    console.log(item);
 
     if (Object.keys(item).length == 0) {
-      return("")
+      return "";
     }
 
     return (
       <TableRow key={id}>
-        <TableCell>{index + 1}</TableCell>
+        <TableCell>{index}</TableCell>
         <TableCell>{title}</TableCell>
         <TableCell>{count}</TableCell>
         <TableCell>{total} руб.</TableCell>
@@ -66,9 +66,7 @@ const ShopppingCartTable: React.FC<IShopppingCartTable> = ({
             <TableCell>Действий</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>{
-          items?.map(RenderRow)}
-        </TableBody>
+        <TableBody>{items?.map(RenderRow)}</TableBody>
       </Table>
       <Typography variant="h4" id="tableTitle" align="right" component="div">
         Итого - {total} руб.
